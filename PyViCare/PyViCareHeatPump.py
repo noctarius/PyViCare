@@ -97,6 +97,10 @@ class HeatPump(HeatingDevice):
         return self.service.getProperty("heating.power.consumption.summary.dhw")["properties"]["lastYear"]["value"]
 
     @handleNotSupported
+    def getBoilerTemperatureCommonSupply(self):
+        return self.service.getProperty("heating.boiler.sensors.temperature.commonSupply")["properties"]["value"]["value"]
+
+    @handleNotSupported
     def getVolumetricFlowReturn(self):
         return self.service.getProperty("heating.sensors.volumetricFlow.allengra")["properties"]['value']['value']
 
@@ -142,3 +146,67 @@ class Compressor(HeatingDeviceWithComponent):
     @handleNotSupported
     def getPhase(self):
         return self.service.getProperty(f"heating.compressors.{self.compressor}")["properties"]["phase"]["value"]
+
+    @handleNotSupported
+    def getProductionCoolingWeek(self):
+        return self.service.getProperty(f"heating.compressors.{self.compressor}.heat.production.cooling.week")["properties"]["value"]["value"]
+
+    @handleNotSupported
+    def getProductionCoolingWeekUnit(self):
+        return self.service.getProperty(f"heating.compressors.{self.compressor}.heat.production.cooling.week")["properties"]["value"]["unit"]
+
+    @handleNotSupported
+    def getProductionCurrent(self):
+        return self.service.getProperty(f"heating.compressors.{self.compressor}.heat.production.current")["properties"]["value"]["value"]
+
+    @handleNotSupported
+    def getProductionCurrentUnit(self):
+        return self.service.getProperty(f"heating.compressors.{self.compressor}.heat.production.current")["properties"]["value"]["unit"]
+
+    @handleNotSupported
+    def getProductionDomesticHotWaterWeek(self):
+        return self.service.getProperty(f"heating.compressors.{self.compressor}.heat.production.dhw.week")["properties"]["value"]["value"]
+
+    @handleNotSupported
+    def getProductionDomesticHotWaterWeekUnit(self):
+        return self.service.getProperty(f"heating.compressors.{self.compressor}.heat.production.dhw.week")["properties"]["value"]["unit"]
+
+    @handleNotSupported
+    def getProductionHeatingWeek(self):
+        return self.service.getProperty(f"heating.compressors.{self.compressor}.heat.production.heating.week")["properties"]["value"]["value"]
+
+    @handleNotSupported
+    def getProductionHeatingWeekUnit(self):
+        return self.service.getProperty(f"heating.compressors.{self.compressor}.heat.production.heating.week")["properties"]["value"]["unit"]
+
+    @handleNotSupported
+    def getConsumptionCoolingWeek(self):
+        return self.service.getProperty(f"heating.compressors.{self.compressor}.power.consumption.cooling.week")["properties"]["value"]["value"]
+
+    @handleNotSupported
+    def getConsumptionCoolingWeekUnit(self):
+        return self.service.getProperty(f"heating.compressors.{self.compressor}.power.consumption.cooling.week")["properties"]["value"]["unit"]
+
+    @handleNotSupported
+    def getConsumptionCurrent(self):
+        return self.service.getProperty(f"heating.compressors.{self.compressor}.power.consumption.current")["properties"]["value"]["value"]
+
+    @handleNotSupported
+    def getConsumptionCurrentUnit(self):
+        return self.service.getProperty(f"heating.compressors.{self.compressor}.power.consumption.current")["properties"]["value"]["unit"]
+
+    @handleNotSupported
+    def getConsumptionDomesticHotWaterWeek(self):
+        return self.service.getProperty(f"heating.compressors.{self.compressor}.power.consumption.dhw.week")["properties"]["value"]["value"]
+
+    @handleNotSupported
+    def getConsumptionDomesticHotWaterWeekUnit(self):
+        return self.service.getProperty(f"heating.compressors.{self.compressor}.power.consumption.dhw.week")["properties"]["value"]["unit"]
+
+    @handleNotSupported
+    def getConsumptionHeatingWeek(self):
+        return self.service.getProperty(f"heating.compressors.{self.compressor}.power.consumption.heating.week")["properties"]["value"]["value"]
+
+    @handleNotSupported
+    def getConsumptionHeatingWeekUnit(self):
+        return self.service.getProperty(f"heating.compressors.{self.compressor}.power.consumption.heating.week")["properties"]["value"]["unit"]
