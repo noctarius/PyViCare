@@ -518,6 +518,14 @@ class HeatingCircuit(HeatingDeviceWithComponent):
         return self.deactivateProgram("comfort")
 
     @handleNotSupported
+    def getName(self):
+        return self.service.getProperty(f"heating.circuits.{self.circuit}.name")["properties"]["value"]["value"]
+
+    @handleNotSupported
+    def getTemperature(self):
+        return self.service.getProperty(f"heating.circuits.{self.circuit}.temperature")["properties"]["value"]["value"]
+
+    @handleNotSupported
     def getSupplyTemperature(self):
         return \
             self.service.getProperty(f"heating.circuits.{self.circuit}.sensors.temperature.supply")["properties"][
